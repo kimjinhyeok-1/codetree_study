@@ -1,25 +1,18 @@
-N = int(input())
+n = int(input())
+arr = []
 
-commands = []
-nums = []
+for _ in range(n):
+    command = input().split()
 
-for _ in range(N):
-    line = input().split()
-    commands.append(line[0])
-    if line[0] == "push_back" or line[0] == "get":
-        nums.append(int(line[1]))
-    else:
-        nums.append(0)
+    if command[0] == "push_back":
+        arr.append(int(command[1]))
 
-# Please write your code here.
+    elif command[0] == "pop_back":
+        arr.pop()
 
-ans = []
-for command, num in zip(commands,nums):
-    if command == 'push_back':
-        ans.append(num)
-    if command == 'pop_back':
-        ans.pop()
-    if command == 'size':
-        print(len(ans))
-    if command == 'get':
-        print(ans[num-1])
+    elif command[0] == "size":
+        print(len(arr))
+
+    elif command[0] == "get":
+        index = int(command[1])
+        print(arr[index - 1])
